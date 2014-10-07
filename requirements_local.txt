@@ -1,0 +1,2 @@
+--requirement requirements.txt
+Fabric==1.10.0

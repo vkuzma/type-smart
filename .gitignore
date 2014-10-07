@@ -1,0 +1,9 @@
+.DS_Store
+/env
+/media
+/static
+/node_modules
+*.pyc
+*.mo
+*.pid
+.env

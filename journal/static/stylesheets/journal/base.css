@@ -1,0 +1,21 @@
+body {
+	font-size: 14px;
+	font-family: monospace;
+	line-height: 16px;
+	margin: 0;
+}
+
+#text {
+	position: relative;
+}
+
+#text > div {
+	width: 100%;
+}
+
+.cursor {
+	position: absolute;
+	width: 1px;
+	height: 16px;
+	border-left: 1px solid black;
+}
