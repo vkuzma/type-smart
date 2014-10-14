@@ -19,11 +19,10 @@ Cursor.prototype = {
 	moveTo: function($item, toEnd) {
 		this.$cursor.css('top', $item.position().top);
 		if(toEnd) {
-			console.log($item.text());
 			this.$cursor.css('left', $item.text().length * 8.4);
 		}
 		else {
-			this.$cursor.css('left', 0);
+			this.$cursor.css('left', $item.position().left);
 		}
 	},
 	_blink: function(isVisible) {
@@ -39,5 +38,33 @@ Cursor.prototype = {
 		setTimeout(function() {
 			self._blink(isVisible);
 		}, 300);
+	},
+	getPositionBottom: function() {
+		var position = this.$cursor.position();
+		position.top += 16;
+		return position;
+	}
+}
+
+var CommandPreview = function($container) {
+	this.$container = $container;
+	this.$preview = $('<div class="command-preview">');
+	this.init();		
+};
+
+CommandPreview.prototype = {
+	init: function() {
+		this.$container.append(this.$preview);
+	},
+	displayCommands: function(commands) {
+		this.$preview.empty();
+
+		for(var key in commands) {
+			this.$preview.append('<a href="#">' + commands[key].name + '</a>');
+		}
+	},
+	setToCursor: function(cursor) {
+		var cursorPosition = cursor.getPositionBottom();
+		this.$preview.css('top', cursorPosition.top).css('left', cursorPosition.left);
 	}
 }

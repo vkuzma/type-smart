@@ -10,7 +10,7 @@ body {
 }
 
 #text > div {
-	width: 100%;
+	
 }
 
 .cursor {
@@ -18,4 +18,30 @@ body {
 	width: 1px;
 	height: 16px;
 	border-left: 1px solid black;
+}
+
+.command-preview {
+	position: absolute;
+	background: gray;
+}
+
+.command-preview a {
+	display: block;
+	text-decoration: none;
+	color: white;
+}
+
+.command {
+	color: gray;
+	position: relative;
+}
+
+.command:after {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	border: 1px dashed gray;
+	content: '';
+	left: 0;
+	top: 0;
 }
